@@ -51,7 +51,12 @@ html,body{
     font: 1em Arial, Helvetica, sans-serif;
     background: url(images/outer-space-hd-wallpaper.jpg) center center no-repeat fixed;
     background-size: cover;
+    position: relative;
+    height: 100%;
+
+
 }
+
 a{
     text-decoration: none;
 }
@@ -105,6 +110,13 @@ float:right ;
 }
 /*--------------------------------------------MAIN-----------------------------------------------*/
 
+.wrapper{
+    min-height: 100%;
+    display: table;
+
+    width: 100%;
+}
+
 .main{
 
     background: linear-gradient(to top, #001244, #000000);
@@ -149,8 +161,8 @@ position: relative;
 }
 .column1{
     width: 55%;
-    font-family: 'Rozha One', serif;
-    color: #0099CC;
+    font-family: 'Titillium Web', sans-serif;
+    color:#87CEFA;
     float: left;
     margin-left: 7%;
     font-size: 0.9em;
@@ -162,18 +174,47 @@ position: relative;
 
 
 }
-.facts {
-    width:45%;
+.news__block{
+    width: 45%;
     float: left;
-
-
-    /*word-spacing: 0.1em;*/
+    margin-left: 2em;
 }
-.facts ul{
-    list-style: circle url(images/sun_icon.png) inside;
+.news__block h2{
+    font-size: 2em;
+    text-align: left;
+}
+.news__block ul {
+    list-style: none;
+    width: 75%;
+}
+.news__block  li + .news__description {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    width: 100%;
+    transition:  all 0.3s ease;
+}
+.news__block ul li {
+   border-bottom: 1px solid white;
+    margin-top: 0.5em;
+
+}
+.news__block ul li + ul > li{
+    color:#fff;
+
 }
 
+.news__block  li:hover + .news__description{
+    opacity: 1;
+    height: 1%;
+    visibility: visible;
 
+}
+.news__description{
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+}
 .column2{
 
 width: 30%;
@@ -257,17 +298,18 @@ clear: both;
     font-family: 'Oswald', sans-serif;
     border-radius:15px;
     text-align: center;
-    margin: 0 auto auto;
+
     width:90%;
     background: linear-gradient(to top, #001244, #3f6395);
-
+    display: table-row;
     color:#87CEFA;
-    font-size: 1.2em;
-    min-height: 0.95em; /*15px*/
+    font-size: 1.1em;
+   height: 1%; /*15px*/
     padding: 0.625em 0 0.625em 0;  /*10px*/
 
-
 }
+
+
 
 /*border:1px solid white;
 
@@ -275,84 +317,98 @@ clear: both;
 
 /*------------------------------------------------------ MEDIA----------------------------------------------*/
 
-@media screen and (max-width: 320px) {
+@media screen and  (min-width:320px )and (max-width: 740px) {
 
-    .header__menu li{
-        display: block;
-    margin-top:2%;
-        font-size:1.2em;
-    }
 
-.logo{
-    margin-left: 15%;
-}
-    .logo img{
-        width: 60%;
-        height: 60%;
-        float: left;
-        transform: rotate(-25deg);
-    }
-    .main__menu ul li,.menu__about ul li{
-    display: block;
-      width: 60%;
-    }
-
-}
-
-@media screen and (max-width:768px)  and (min-width: 320px) {
-    *{
-        font-size: 1em;
-    }
-    .logo img{
-        width: 70%;
-        height: 70%;
-        float: left;
-    }
-    .header__menu ul{
-        font-size:1.7em;
-    }
-    .main__menu ul,.menu__about ul{
-
-        list-style: none;
-        font-size:1.7em;
-        padding-top:0.2em;
+        *{
+            font-size: 1em;
+        }
+    .logo{
+        margin:0 15%;
+        width: 80%;
 
     }
-    .main__menu ul li,.menu__about ul li{
+        .logo img{
+            width: 70%;
+            height: 70%;
+            float: left;
+        }
+        .header__menu ul{
+            font-size:1.7em;
+        }
+        .main__menu ul,.menu__about ul{
 
-        margin: 0.5em  auto 0 auto;
-        text-align: center;
-    }
-    .main .column1{
-        display: none;
-    }
-    .main .column2{
-        width: 100%
-    }
+            list-style: none;
+            font-size:1.7em;
+            padding-top:0.2em;
+
+        }
+        .main__menu ul li,.menu__about ul li{
+
+            margin: 0.5em  auto 0 auto;
+            text-align: center;
+        }
+        .main .column1{
+            display: none;
+        }
+        .main .column2{
+            width: 100%
+        }
 
 
-
-}
-
-@media screen and (max-width:1440px ) and (min-width:768px) {
-.header__menu{
-    font-size:1.3em;
-
-}
-
-    .column2{
-       width: 35%;
+    .main__menu ul li:last-child {
+        display: inline-block;
     }
 }
-@media screen and (max-width:1080px){
-    .facts{
-        width: 100%;
-    }
+
+
+@media screen and (max-width:1024px) and (min-width: 768px){
 
     .main__image{
         float: left;
+display: block;
+    }
+    .news__block ul li {
+        font-size: 1.2em;
+    }
+    .main__menu ul li:last-child {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:1440px ) and (min-width:900px) {
+    .header__menu{
+        font-size:1.5em;
 
     }
+
+    .column2{
+        width: 35%;
+    }
+    .main__menu ul li:last-child {
+        display: inline-block !important;
+    }
+}
+@media screen and (max-width:1440px ) and (min-width:900px) , (orientation: portrait) {
+
+    .news__block{
+
+        width: 90%;
+    }
+    .main__image{
+
+        display: none;
+    }
+    .main__menu ul li:last-child {
+        display: inline-block;
+    }
+
+    .main__menu ul{
+        width: 90%;
+        margin: 0 auto;
+    }
+
 }
 
 
@@ -383,6 +439,7 @@ clear: both;
 }
 .column1{
     width: 65%;
+    font-size: 1em;
     margin-left: 2%;
 }
 .column2{
@@ -400,6 +457,9 @@ clear: both;
         margin-left: 2.5%;
 
     }
+ .main__menu ul li:last-child {
+     display: none;
+ }
 
 }
 
@@ -447,7 +507,7 @@ clear: both;
 }
 
 /*------------------------------------------------MEDIA GALLERY----------------------------------*/
-@media screen and (max-width: 320px)  {
+@media screen and  (min-width:320px )and (max-width: 570px){
     #full {
         width: 90%;
         height: 90%;
@@ -455,20 +515,15 @@ clear: both;
         -moz-box-shadow: none;
         box-shadow: none;
     }
-#smallImg img{
-    width: 80%;
-    height: 80%;
-    margin-left: 8%;
-}
-}
-@media screen and (max-width:768px)  and (min-width: 320px) {
-
     #smallImg img{
         width: 60%;
         height: 60%;
         margin-left: 20%;
     }
+
 }
+
+
 
 
 /*-------------------------------------------------------About site------------------------------------------------*/
@@ -504,7 +559,7 @@ text-indent: 2em;
 
 .menu__about li{
     display: inline-block;
-    margin:0.5em 1em 0 1em;
+    margin:0.5em 0.5em 0 1em;
     padding: 0 0.5em 0 0.5em;
     border: 2px solid #87CEFA;
     border-radius: 10px;
@@ -520,39 +575,47 @@ text-indent: 2em;
 
 }
 
+
+
 .about__info{
     font-size: 1.5em;
 }
 
 /*------------------------------------------------------MEDIA ABOUT SITE ----------------------------------------------------*/
-@media screen and (max-width: 320px) {
+@media screen and  (min-width:320px )and (max-width: 570px) {
  .about__info p{
      text-indent: 0.2em;
      text-align: left;
      font-size: 0.8em;
  }
-  .menu__about ul li{
-        display: block;
-        width: 60%;
-      font-size: 1.2em;
+    .menu__about ul li{
+        margin: 1em  0.1em 0 0.1em;
+        text-align: center;
     }
-
-}
-
-@media screen and (max-width:768px)  and (min-width: 320px) {
     .menu__about ul{
+        width: 65%;
+        margin: 0 auto;
         list-style: none;
         font-size:1.7em;
         padding-top:0.2em;
     }
-   .menu__about ul li{
-        margin: 1em  1em 0 1em;
-        text-align: center;
+
+}
+
+@media screen and  (min-width:1024px )and (max-width: 768px) {
+    .menu__about ul{
+
+        width: 90%;
+        margin: 0 auto;
+
     }
+
 }
 
 
-@media screen and (max-width:1920px ) and (min-width:1080px){
+
+
+@media screen and (max-width:1920px ) and (min-width:1080px)  {
    .menu__about{
         font-size: 1.25em;
     }
@@ -591,11 +654,12 @@ border-radius: 30px;
     display:block;
     margin:3em auto 5em auto ;
     width:90%;
-    font-family: 'Muli', sans-serif;
+
     font-size: 1em;
     color: #999;
 padding-bottom: 1em;
     background-color: #000000;
+border: 1px solid white;
 }
 
 
@@ -659,7 +723,10 @@ padding-bottom: 1em;
 .contact__footer,.contact__header{
     background: linear-gradient(to top,#05184a ,#20242d);
 }
+.contact__footer{
 
+    display: table-row;
+}
 
 
 /*--------------------------------------------------MEDIA CONTACT US------------------*/
@@ -668,11 +735,126 @@ padding-bottom: 1em;
 
 
 
-@media screen and (max-width:768px)  and (min-width: 320px) {
+@media screen and (max-width:570px)  and (min-width: 320px){
     .main__contact img {
 
         width: 40%;
         height: 40%;
+    }
+
+    #submit {
+        width:55%;
+
+    }
+}
+
+@media screen and (max-width:1024px)  and (min-width: 768px) ,(orientation: portrait){
+
+    .wrap__contact__form{
+width: 70%;
+    }
+
+}
+
+
+
+
+/*--------------------------------------------------------SOLAR SYSTEM----------------------------------------------*/
+
+.solarsys__main{
+    width:95%;
+    border-radius: 15px ;
+    margin: 2em auto;
+    background: linear-gradient(to top,#05184a ,#000);
+    text-align: center;
+}
+
+.solarsys__content {
+    font-family: 'Titillium Web', sans-serif;
+    color: #0099CC;
+    text-indent: 2em;
+    margin:auto;
+    width: 95%;
+}
+
+.solarsys__content p{
+    text-indent: 2em;
+    margin: 1em auto;
+
+}
+
+.solarsys___image{
+    border-radius: 30px;
+    width: 70%;
+    height: 70%;
+    margin: 1em 15%;
+    transform: rotate(180deg);
+}
+.planets__menu h2{
+    font-size: 2.5em;
+    color:#4682B4;
+    margin:0 auto;
+    text-align: center;
+}
+.planets__menu ul{
+    font-family: 'Titillium Web', sans-serif;
+    text-align: center;
+    list-style: none;
+    font-size:1.25em;
+    padding-top:0.5em;
+}
+.planets__menu li{
+    display: inline-block;
+    margin:0.5em 0 0 1em;
+    padding: 0 0.5em 0 0.5em;
+    border: 2px solid #87CEFA;
+    border-radius: 10px;
+
+}
+.planets__menu li:hover{
+    background-color:#4682B4;
+    border-color: #00BFFF;
+}
+.planets__menu a{
+    color:#87CEFA;
+
+
+}
+
+
+/*---------------------------SOLAR SYSTEM MEDIA------------------------------------------*/
+
+@media screen and  (min-width:320px )and (max-width: 570px) {
+   .solarsys__content p:last-child,.solarsys__content p:first-child{
+       display: none;
+   }
+.solarsys__content{
+    font-size: 1.3em;
+    text-align: left;
+}
+    .solarsys___image{
+        margin: auto;
+        width: 100%;
+        height: 100%;
+
+    }
+    .planets__menu li{
+
+        width: 30%;
+        margin:0.7em auto;
+
+    }
+    .planets__menu ul {
+        margin: auto;
+        width: 100%;
+
+    }
+}
+
+
+@media screen and  (min-width:1080px )and (max-width: 1920px){
+    .solarsys__content{
+        font-size: 1.8em;
 
     }
 }
@@ -680,7 +862,341 @@ padding-bottom: 1em;
 
 
 
-/**/
+
+
+/*-----------------------------------------------GALAXIES------------------------------------*/
+.galaxies__main{
+  width: 90%;
+    border-radius: 40px;
+    margin: 2em auto;
+    padding: 1em;
+    background: linear-gradient(to top,#05184a ,#000);
+}
+.Milky_Way {
+    width: 90%;
+    margin: 1em auto;
+    color: #0099CC;
+}
+.Milky_Way_header{
+        text-align: center;
+        margin: 1em auto 0 auto;
+        width: 100%;
+        font-size: 1.5em;
+        position: relative;
+}
+
+.Milky_Way_profile{
+font-size: 1.2em;
+text-indent: 2em;
+    font-family: 'Rozha One', serif;
+
+}
+.Milky_Way_profile table {
+    margin: 1em auto 0 auto ;
+
+}
+.Milky_Way_profile table caption{
+    font-size: 1.5em;
+}
+.Milky_Way_image{
+    width: 60%;
+    height: 60%;
+    border-radius: 40px;
+    margin:1em 0;
+}
+.other_galaxy{
+margin: 0 auto;
+    list-style: none;
+    width:40%;
+   visibility: hidden;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    left:30%;
+    border-radius:40px ;
+
+    transition: all 0.6s ease;
+}
+
+.Milky_Way_header h3:hover + .other_galaxy{
+
+    opacity:1;
+    visibility: visible;
+    height: 1%;
+    opacity: 1;
+}
+.other_galaxy:hover{
+    opacity:1;
+    visibility: visible;
+    height: 1%;
+    opacity: 1;
+}
+.other_galaxy li a{
+    color: #0099CC;
+}
+.other_galaxy li a:hover{
+    color:#001244;
+     border-radius: 10px;
+    background-color:#4682B4;
+}
+
+
+
+/*---------------------------------MEDIA GALAXIES------------------------------------*/
+
+
+@media screen and  (min-width:320px )and (max-width: 570px) {
+
+    .Milky_Way_image{
+        width: 90%;
+        height: 90%;
+    }
+    .Milky_Way_profile table {
+       display: none;
+
+    }
+.Milky_Way_profile{
+    text-align: center;
+    text-indent: 0;
+}
+
+    .Milky_Way_profile p + p{
+        display: none;
+    }
+
+    .other_galaxy{
+
+        width:90%;
+
+left: 5%;
+    }
+
+}
+
+
+
+
+/*--------------------------THE SUN------------------------------------*/
+
+.main__sun{
+    width: 95%;
+    border-radius: 40px;
+    margin: 2em auto;
+
+    background: linear-gradient(to left,#05184a ,#000,#FF9933);
+}
+
+.main__sun h2{
+    color:#CC6600;
+    text-align: center;
+    font-size:2.3em;
+
+    text-shadow: #05184a 2px 2px 0,
+    #05184a 2px 2px 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+.sun__header,.sun__footer{
+    background: linear-gradient(to left,#05184a ,#000,#FF9933);
+}
+.sun__content{
+    width:100%;
+    text-indent: 1em;
+    color: #3399CC;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.3em;
+}
+.sun__content .sun__img{
+
+
+    width: 30%;
+    vertical-align: top;
+    display: inline-block;
+
+}
+.sun__content .sun__img img{
+     width:90%;
+    height:90%;
+}
+.sun__info{
+    width: 35%;
+    display: inline-block;
+
+
+}
+.sun__video{
+    display: inline-block;
+    width: 30%;
+
+    vertical-align: top;
+}
+.sun__video p{
+    padding:1em 0 0 1em;
+    font-size: 1.2em;
+}
+
+.facts {
+    width:100%;
+   display: block;
+margin-top: 2em;
+    text-align: center;
+    font-family: 'Rozha One', serif;
+    color: #0099CC;
+    /*word-spacing: 0.1em;*/
+}
+.facts ul{
+    list-style: circle url(images/sun_icon.png) inside;
+}
+
+/*---------------------------------MEDIA SUN------------------------------------*/
+
+
+@media screen and  (min-width:320px )and (max-width: 740px)  {
+
+    .sun__content{
+        color: white;
+        text-align: center;
+    }
+    .sun__content .sun__img{
+        width: 95%;
+        display: block;
+    }
+    .sun__info{
+        width: 95%;
+        display: block;
+
+    }
+    .sun__video {
+        display: block;
+        width: 95%;
+        font-size: 0.8em;
+    }
+        .sun__video video {
+            width: 90%;
+            height: 90%;
+        }
+
+    .facts{
+        color:white;
+    }
+}
+@media screen and (max-width:1024px ){
+
+    .sun__content{
+        color: white;
+        text-align: center;
+    }
+    .sun__content .sun__img{
+        width: 95%;
+        display: block;
+    }
+    .sun__info{
+        width: 95%;
+        display: block;
+
+    }
+    .sun__video{
+        display: block;
+        width: 95%;
+        font-size: 0.8em;
+    }
+    .facts{
+        color:white;
+    }
+}
+    @media screen and (max-width:1440px ) and (min-width:900px) {
+.sun__header{
+
+    font-size: 1.6em;
+}
+    .sun__content{
+        color: white;
+        text-align: center;
+        width: 95%;
+    margin: 0 auto;
+
+    }
+    .sun__content .sun__img{
+        width: 95%;
+        display: block;
+    }
+    .sun__info{
+        width: 95%;
+        display: block;
+
+
+    }
+    .sun__video{
+        display: block;
+        width: 95%;
+
+    }
+        .facts{
+            color:white;
+        }
+}
+
+
+/*-------------------------------MOVIES--------------------------------*/
+
+.movies__header{
+    font-size: 1.5em;
+}
+
+.main__movies{
+
+    width: 80%;
+    margin: 1em auto;
+    background: linear-gradient(to top,#05184a ,#000);
+    border-radius: 20px;
+}
+.main__movies h2 {
+    font-size: 2.5em;
+    color: #0099CC;
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+
+}
+.main__movies article {
+    position: relative;
+}
+
+
+.main__movies img{
+     border-radius: 15px;
+    width: 30%;
+    height: 30%;
+    margin:2em 0 1em 12%;
+    border:2px solid white;
+    transition: all 0.5s ease;
+ }
+
+.main__movies a:hover img{
+    width: 31%;
+    height: 31%;
+   border: 3px solid white;
+}
+
+/*---------------------------------MEDIA MOVIES------------------------*/
+
+@media screen and  (min-width:320px )and (max-width: 570px){
+
+    .main__movies img{
+        width: 60%;
+        height: 60%;
+        margin-left: 20%;
+    }
+    .main__movies a:hover img{
+        width: 61%;
+        height: 61%;
+        border: 3px solid white;
+    }
+}
+
+
+
+
+
 
 
 
